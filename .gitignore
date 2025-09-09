@@ -1,5 +1,18 @@
+# ROS 2 构建输出
 build/
 install/
 log/
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# VS Code 配置
 .vscode/
+
+# 数据库或二进制缓存
 *.db
+
+# Mac/其他系统文件
+.DS_Store
