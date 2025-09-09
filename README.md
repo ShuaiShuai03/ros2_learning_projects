@@ -1,95 +1,123 @@
-# ROS2 Learning Projects
+# ROS 2 学习教程
 
-本仓库记录了我在 **30 天 ROS 2 学习计划** 中完成的练习与项目。  
-从零开始，通过一个个小项目逐步掌握 ROS 2 的核心概念与开发技能。
+欢迎来到本仓库！这里是一个系统化的 **ROS 2 学习教程**，通过循序渐进的小项目帮助你快速入门并掌握 ROS 2 的核心概念和开发技能。无论你是学生、开发者还是想了解机器人领域的，这里都能为你提供清晰的学习路径。
 
 ---
 
-## 📂 项目结构
+## 📦 仓库结构
+
 ```
 ros2_learning_projects/
 ├── src/
 │   ├── my_first_pkg/      # 第一个包：Hello ROS 2 节点
-│   └── my_second_pkg/     # 第二个包：定时器 + 发布/订阅节点
+│   ├── my_second_pkg/     # 定时器 + 发布/订阅节点
 └── .gitignore             # 忽略构建生成文件
 ```
 
 ---
 
-## 🚀 学习目标
-- [x] Day 0: 环境搭建与验证
-- [x] Day 1: 工作空间、包、节点
-- [x] Day 2: 定时器与日志
-- [x] Day 3: 话题通信（Publisher + Subscriber）
-- [ ] Day 4+: 更多 ROS 2 功能（Service, Action, Launch, TF2, URDF, Gazebo, SLAM...）
+## 🚀 学习模块
+
+* **模块 0 – 环境与工作空间**
+  学习如何安装 ROS 2，创建工作空间，并使用 `colcon` 构建和配置开发环境。
+
+* **模块 1 – 节点与包** (`my_first_pkg`)
+  理解 ROS 2 包的结构，并编写你的第一个 Python 节点。
+
+* **模块 2 – 发布者与订阅者** (`my_second_pkg`)
+  使用定时器构建一个发布者节点，并实现一个订阅者节点来接收消息。
+
+* **模块 3 – 服务与客户端** *(即将推出)*
+  编写一个服务端与客户端，学习请求-响应通信模式。
+
+* **模块 4 – 动作（Action）** *(即将推出)*
+  学习如何处理长耗时任务，支持实时反馈与取消。
+
+* **模块 5 – 高级主题** *(即将推出)*
+  包括参数、Launch 启动系统、TF2 坐标变换、URDF 机器人建模、Gazebo 仿真、导航与 SLAM 等。
 
 ---
 
-## ⚙️ 使用方法
+## ⚙️ 快速开始
 
 ### 1. 克隆仓库
+
 ```bash
 git clone https://github.com/ShuaiShuai03/ros2_learning_projects.git
 cd ros2_learning_projects
 ```
 
-### 2. 构建项目
+### 2. 构建工作空间
+
 ```bash
 colcon build
 source install/setup.bash
 ```
 
-### 3. 运行示例节点
+### 3. 运行示例
 
-#### my_first_pkg
+* **Hello 节点**
+
 ```bash
 ros2 run my_first_pkg hello
 ```
+
 输出：
+
 ```
 [INFO] [hello_node]: Hello, ROS 2! 我是你的第一个节点！
 ```
 
-#### my_second_pkg - 发布者
-```bash
-ros2 run my_second_pkg ticker
-```
-输出：
-```
-[INFO] [ticker_node]: 发布消息: "Tick 1"
-[INFO] [ticker_node]: 发布消息: "Tick 2"
-...
-```
+* **发布者与订阅者**
 
-#### my_second_pkg - 订阅者
-新开一个终端（记得先 `source install/setup.bash`）：
 ```bash
+# 终端 1 – 发布者
+os2 run my_second_pkg ticker
+
+# 终端 2 – 订阅者（记得先 source）
 ros2 run my_second_pkg listener
 ```
-输出：
-```
-[INFO] [listener_node]: 收到消息: "Tick 1"
-[INFO] [listener_node]: 收到消息: "Tick 2"
-...
+
+* **服务与客户端**
+
+```bash
+# 终端 1 – 服务端
+ros2 run my_service_pkg server
+
+# 终端 2 – 客户端
+ros2 run my_service_pkg client
 ```
 
 ---
 
 ## 📖 学习计划
-本项目基于 [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/) 学习，目标是在 30 天内完成以下内容：
+
+本教程基于 [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/) ，参考了 30 天学习路径：
+
 1. 基础：节点、话题、服务、参数
 2. 进阶：TF2、URDF、RViz、Gazebo
 3. 实战：导航、SLAM、完整机器人项目
 
-我会持续更新，把每天的学习内容整理成代码和文档上传到这里。
+你可以按照模块顺序逐步学习，也可以根据需要选择性学习。
+
+---
+
+## 📚 推荐资源
+
+* [ROS 2 官方文档](https://docs.ros.org) – 安装指南、API 参考和教程
+* [Awesome ROS 2](https://github.com/fkromer/awesome-ros2) – ROS 2 资源合集
+* [ROS Discourse 论坛](https://discourse.ros.org) – 社区问答与资讯
+* [ROS 2 示例代码](https://github.com/ros2/examples) – 官方示例
 
 ---
 
 ## 🤝 贡献
-这是一个学习性质的仓库，欢迎任何建议或改进意见。  
-如果你也在学习 ROS 2，可以 fork 本仓库，一起交流学习！
+
+本教程仍在不断完善中，欢迎提出问题、补充内容或提交 PR。如果你也在学习 ROS 2，欢迎 fork 本仓库并分享你的学习心得！
 
 ---
 
-## 📜 License
+## 📜 许可证
+
 MIT License
+
