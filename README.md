@@ -1,6 +1,6 @@
 # ROS 2 学习教程
 
-欢迎来到本仓库！这里是一个系统化的 **ROS 2 学习教程**，通过循序渐进的小项目帮助你快速入门并掌握 ROS 2 的核心概念和开发技能。无论你是学生、开发者还是想了解机器人领域的，这里都能为你提供清晰的学习路径。
+欢迎来到本仓库！本项目是一个 **ROS 2 系统化学习教程**，结合 30 天学习计划，从零开始帮助你逐步掌握 ROS 2 的核心概念和开发技能。无论你是初学者、开发者还是准备进入机器人领域的学生，都能通过本教程获得清晰的学习路径和可运行的代码示例。
 
 ---
 
@@ -11,6 +11,7 @@ ros2_learning_projects/
 ├── src/
 │   ├── my_first_pkg/      # 第一个包：Hello ROS 2 节点
 │   ├── my_second_pkg/     # 定时器 + 发布/订阅节点
+│   ├── my_service_pkg/    # 服务端 + 客户端示例
 └── .gitignore             # 忽略构建生成文件
 ```
 
@@ -27,8 +28,8 @@ ros2_learning_projects/
 * **模块 2 – 发布者与订阅者** (`my_second_pkg`)
   使用定时器构建一个发布者节点，并实现一个订阅者节点来接收消息。
 
-* **模块 3 – 服务与客户端** *(即将推出)*
-  编写一个服务端与客户端，学习请求-响应通信模式。
+* **模块 3 – 服务与客户端** (`my_service_pkg`)
+  编写服务端与客户端，学习请求-响应通信模式（以 `AddTwoInts` 为例）。
 
 * **模块 4 – 动作（Action）** *(即将推出)*
   学习如何处理长耗时任务，支持实时反馈与取消。
@@ -72,24 +73,40 @@ ros2 run my_first_pkg hello
 
 ```bash
 # 终端 1 – 发布者
-os2 run my_second_pkg ticker
+ros2 run my_second_pkg ticker
 
 # 终端 2 – 订阅者（记得先 source）
 ros2 run my_second_pkg listener
 ```
 
+* **服务与客户端**
+
+```bash
+# 终端 1 – 服务端
+ros2 run my_service_pkg server
+
+# 终端 2 – 客户端
+ros2 run my_service_pkg client
+```
+
+输出：
+
+```
+[INFO] [add_two_ints_server]: 收到请求: 3 + 5 = 8
+[INFO] [add_two_ints_client]: 结果: 8
+```
 
 ---
 
 ## 📖 学习计划
 
-本教程基于 [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/) ，参考了 30 天学习路径：
+本教程基于 [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/) ，参考 30 天学习框架【309†学习信息.txt†L33-L41】：
 
-1. 基础：节点、话题、服务、参数
-2. 进阶：TF2、URDF、RViz、Gazebo
-3. 实战：导航、SLAM、完整机器人项目
+1. **基础**：节点、话题、服务、参数
+2. **进阶**：TF2、URDF、RViz、Gazebo
+3. **实战**：导航、SLAM、完整机器人项目
 
-你可以按照模块顺序逐步学习，也可以根据需要选择性学习。
+你可以按照模块顺序学习，也可以根据需要跳读。
 
 ---
 
