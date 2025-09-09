@@ -78,15 +78,6 @@ os2 run my_second_pkg ticker
 ros2 run my_second_pkg listener
 ```
 
-* **服务与客户端**
-
-```bash
-# 终端 1 – 服务端
-ros2 run my_service_pkg server
-
-# 终端 2 – 客户端
-ros2 run my_service_pkg client
-```
 
 ---
 
