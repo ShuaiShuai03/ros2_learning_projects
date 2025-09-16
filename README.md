@@ -1,3 +1,4 @@
+
 # ROS 2 学习教程
 
 欢迎来到本仓库！本项目是一个 **ROS 2 系统化学习教程**，结合 30 天学习计划，从零开始帮助你逐步掌握 ROS 2 的核心概念和开发技能。无论你是初学者、开发者还是准备进入机器人领域的学生，都能通过本教程获得清晰的学习路径和可运行的代码示例。
@@ -12,6 +13,7 @@ ros2_learning_projects/
 │   ├── my_first_pkg/      # 第一个包：Hello ROS 2 节点
 │   ├── my_second_pkg/     # 定时器 + 发布/订阅节点
 │   ├── my_service_pkg/    # 服务端 + 客户端示例
+│   └── my_action_pkg/     # 动作（Fibonacci 示例）
 └── .gitignore             # 忽略构建生成文件
 ```
 
@@ -31,8 +33,26 @@ ros2_learning_projects/
 * **模块 3 – 服务与客户端** (`my_service_pkg`)
   编写服务端与客户端，学习请求-响应通信模式（以 `AddTwoInts` 为例）。
 
-* **模块 4 – 动作（Action）** *(即将推出)*
-  学习如何处理长耗时任务，支持实时反馈与取消。
+* **模块 4 – 动作（Action）** (`my_action_pkg`)
+  使用 `example_interfaces/action/Fibonacci` 实现一个动作通信示例，展示如何处理长耗时任务并提供实时反馈与最终结果。
+
+  **运行方法：**
+  ```bash
+  # 终端 1 – 启动 Action 服务端
+  ros2 run my_action_pkg server
+
+  # 终端 2 – 启动 Action 客户端
+  ros2 run my_action_pkg client
+  ```
+
+  **预期输出（客户端）：**
+  ```
+  发送请求，order=5
+  请求已接受
+  收到进度反馈: [0, 1, 1]
+  收到进度反馈: [0, 1, 1, 2]
+  最终结果: [0, 1, 1, 2, 3]
+  ```
 
 * **模块 5 – 高级主题** *(即将推出)*
   包括参数、Launch 启动系统、TF2 坐标变换、URDF 机器人建模、Gazebo 仿真、导航与 SLAM 等。
@@ -96,11 +116,31 @@ ros2 run my_service_pkg client
 [INFO] [add_two_ints_client]: 结果: 8
 ```
 
+* **动作（Fibonacci 示例）**
+
+```bash
+# 终端 1 – 启动 Action 服务端
+ros2 run my_action_pkg server
+
+# 终端 2 – 启动 Action 客户端
+ros2 run my_action_pkg client
+```
+
+输出：
+
+```
+发送请求，order=5
+请求已接受
+收到进度反馈: [0, 1, 1]
+收到进度反馈: [0, 1, 1, 2]
+最终结果: [0, 1, 1, 2, 3]
+```
+
 ---
 
 ## 📖 学习计划
 
-本教程基于 [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/) ，参考 30 天学习框架【309†学习信息.txt†L33-L41】：
+本教程基于 [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/) ，参考 30 天学习框架：
 
 1. **基础**：节点、话题、服务、参数
 2. **进阶**：TF2、URDF、RViz、Gazebo
@@ -128,4 +168,3 @@ ros2 run my_service_pkg client
 ## 📜 许可证
 
 MIT License
-
