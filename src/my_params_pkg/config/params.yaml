@@ -1,0 +1,5 @@
+param_node:
+  ros__parameters:
+    robot_name: "configured_robot"
+    max_speed: 2.5
+    enable_logging: true
